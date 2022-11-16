@@ -6,6 +6,7 @@ const refreshIDLength = 4;
 const seed = {
 	count: config.countStart,
 	refreshID: rndString(refreshIDLength),
+	spaceBetweenSquares: config.initialSpace,
 };
 
 export default seed;
