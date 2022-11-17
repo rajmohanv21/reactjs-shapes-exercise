@@ -1,22 +1,25 @@
 import React from 'react';
-import config from '../core/config';
 import { range } from '@laufire/utils/collection.js';
+import config from '../core/config';
 
 let xAxis = config.initialAxis;
 let yAxis = config.initialAxis;
-const squareCount = 9;
 
 const resetAxisValue = () => {
 	xAxis = config.initialAxis;
 	yAxis++;
 };
 
-const Square = ({ state: { spaceBetweenSquares }, config: { squareSize }}) => {
+const Square = ({
+	state: { spaceBetweenSquares },
+	config: { squareSize, squareCount },
+}) => {
 	let squareShape = {};
 
-	const squares = range(0, squareCount).map((value, key) => {
-		((xAxis * xAxis) === squareCount) && resetAxisValue();
+	xAxis = config.initialAxis;
+	yAxis = config.initialAxis;
 
+	const squares = range(0, squareCount).map((value, key) => {
 		squareShape = {
 			className: 'square',
 			style: {
@@ -24,7 +27,8 @@ const Square = ({ state: { spaceBetweenSquares }, config: { squareSize }}) => {
 				top: `${ (squareSize + spaceBetweenSquares) * yAxis }px`,
 			},
 		};
-		xAxis++;
+
+		(xAxis * xAxis) === squareCount ? resetAxisValue() : xAxis++;
 
 		return <div key={ key } { ...squareShape }/>;
 	});

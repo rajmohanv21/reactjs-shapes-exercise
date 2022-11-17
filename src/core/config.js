@@ -1,7 +1,8 @@
 const config = {
 	countStart: 0,
 	increment: 1,
-	initialAxis: 0,
+	squareCount: 9,
+	initialAxis: 1,
 	initialSpace: 10,
 	squareSize: 50,
 };
