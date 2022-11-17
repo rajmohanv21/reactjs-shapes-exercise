@@ -1,39 +1,30 @@
 import React from 'react';
 import { range } from '@laufire/utils/collection.js';
-import config from '../core/config';
+import squareService from '../services/SquareShape';
 
-let xAxis = config.initialAxis;
-let yAxis = config.initialAxis;
+const Square = (context) => {
+	const { config: { squareCount, initialAxis }} = context;
 
-const resetAxisValue = () => {
-	xAxis = config.initialAxis;
-	yAxis++;
-};
+	let xAxis = initialAxis;
+	let yAxis = initialAxis;
 
-const Square = ({
-	state: { spaceBetweenSquares },
-	config: { squareSize, squareCount },
-}) => {
-	let squareShape = {};
+	const resetAxisValue = () => {
+		xAxis = initialAxis;
+		yAxis++;
+	};
 
-	xAxis = config.initialAxis;
-	yAxis = config.initialAxis;
-
-	const squares = range(0, squareCount).map((value, key) => {
-		squareShape = {
+	return range(0, squareCount).map((value, key) => {
+		const squareShape = {
 			className: 'square',
-			style: {
-				left: `${ (squareSize + spaceBetweenSquares) * xAxis }px`,
-				top: `${ (squareSize + spaceBetweenSquares) * yAxis }px`,
-			},
+			style: squareService.getSquareShapePosition({
+				...{ ...context, data: { xAxis, yAxis }},
+			}),
 		};
 
-		(xAxis * xAxis) === squareCount ? resetAxisValue() : xAxis++;
+		Math.sqrt(squareCount) === xAxis ? resetAxisValue() : xAxis++;
 
 		return <div key={ key } { ...squareShape }/>;
 	});
-
-	return <div className="square-container"> {squares} </div>;
 };
 
 export default Square;
