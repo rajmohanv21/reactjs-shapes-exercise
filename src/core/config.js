@@ -5,6 +5,10 @@ const config = {
 	initialAxis: 1,
 	initialSpace: 10,
 	squareSize: 50,
+	initialRadius: 100,
+	circlePoints: 9,
+	circleInitialXAxis: 100,
+	circleInitialYAxis: 100,
 };
 
 export default config;

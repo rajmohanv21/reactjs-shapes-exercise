@@ -7,6 +7,7 @@ const seed = {
 	count: config.countStart,
 	refreshID: rndString(refreshIDLength),
 	spaceBetweenSquares: config.initialSpace,
+	circleRadius: config.initialRadius,
 };
 
 export default seed;

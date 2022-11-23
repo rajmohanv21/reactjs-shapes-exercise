@@ -1,5 +1,6 @@
 .App {
 	text-align: center;
+	position: relative;
 
 	button {
 		font-weight: bold;
@@ -11,4 +12,13 @@
 	height: 50px;
 	background-color: black;
 	position: absolute;
+}
+
+
+.circle {
+	width: 50px;
+	height: 50px;
+	background-color: black;
+	position: absolute;
+	border-radius: 50%,
 }
