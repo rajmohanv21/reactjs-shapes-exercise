@@ -8,6 +8,7 @@ const seed = {
 	refreshID: rndString(refreshIDLength),
 	spaceBetweenSquares: config.initialSpace,
 	circleRadius: config.initialRadius,
+	selectedShape: config.defaultShape,
 };
 
 export default seed;

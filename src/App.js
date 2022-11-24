@@ -1,14 +1,11 @@
 import { React } from 'react';
 import './App.scss';
-import InputBox from './components/InputBox';
-// import Square from './components/Square';
-import Circle from './components/Circle';
+import DisplayShapes from './components/DisplayShapes';
+import ShapeSelection from './components/ShapeSelection';
 
-const App = (context) =>
-	<div className="App" role="application">
-		<InputBox { ...context }/>
-		{/* <Square { ...context }/> */}
-		<Circle { ...context }/>
-	</div>;
+const App = (context) => <div className="App" role="application">
+	<ShapeSelection { ...context }/>
+	<DisplayShapes { ...context }/>
+</div>;
 
 export default App;

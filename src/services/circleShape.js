@@ -5,8 +5,9 @@ const generateCircleShapes = ({
 	state: { circleRadius },
 }) => {
 	let angle = 0;
+	const halfCircleCount = 2;
 
-	const slice = 2 * Math.PI / circlePoints;
+	const slice = halfCircleCount * Math.PI / circlePoints;
 
 	return range(0, circlePoints).map((circlePoint, index) => {
 		angle += slice;

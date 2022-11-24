@@ -9,6 +9,7 @@ const config = {
 	circlePoints: 9,
 	circleInitialXAxis: 100,
 	circleInitialYAxis: 100,
+	defaultShape: 'Square',
 };
 
 export default config;
