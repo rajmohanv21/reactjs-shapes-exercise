@@ -1,8 +1,9 @@
 import React from 'react';
 
 const ShapeList = ({
-	actions: { shapeSelectionHandler },
+	actions: { selectShapeHandler },
 	state: { selectedShape },
+	config: { shapes },
 }) =>
 	<div>
 		<label htmlFor="shapesList">
@@ -10,10 +11,10 @@ const ShapeList = ({
 		</label>
 		<select
 			value={ selectedShape }
-			onChange={ shapeSelectionHandler }
+			onChange={ selectShapeHandler }
 		>
-			<option value="Square">Square</option>
-			<option value="Circle">Circle</option>
+			{shapes.map((shape) =>
+				<option key={ shape } value={ shape }>{shape}</option>)}
 		</select>
 	</div>;
 

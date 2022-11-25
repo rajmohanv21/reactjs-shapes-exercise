@@ -1,30 +1,27 @@
 import React from 'react';
 
-const getInputBoxName = (selectedShape) =>
-	(selectedShape === 'Square'
-		? 'SpaceValueBetweenSquares'
-		: 'RadiusValueBetweenSquares');
+const inputBoxName = {
+	Square: 'SpaceValueBetweenSquares',
+	Circle: 'RadiusValueBetweenSquares',
+};
 
-const getLabelText = (selectedShape) =>
-	(selectedShape === 'Square'
-		? 'Enter Space Value(px) in Between Squares'
-		: 'Enter Radius Value');
+const inputLabelText = {
+	Square: 'Enter Space Value(px) in Between Squares',
+	Circle: 'Enter Radius Value',
+};
 
-const InputBox = ({ state: { selectedShape },
-	actions:	{
-		updateSpaceValue,
-		updateCircleRadius,
-	}}) => {
-	const name = getInputBoxName(selectedShape);
+const InputBox = ({
+	state: { selectedShape },
+	actions: { updateSpaceValue },
+}) => {
+	const name = inputBoxName[selectedShape];
 
 	return <div>
-		<label htmlFor={ name }> { getLabelText(selectedShape) } </label>
+		<label htmlFor={ name }> {inputLabelText[selectedShape]} </label>
 		<input
 			type="number"
 			name={ name }
-			onChange={ selectedShape === 'Square'
-				? updateSpaceValue
-				: updateCircleRadius }
+			onChange={ updateSpaceValue }
 		/>
 	</div>;
 };

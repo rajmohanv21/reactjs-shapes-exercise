@@ -1,18 +1,18 @@
 import { range } from '@laufire/utils/collection';
 
 const generateCircleShapes = ({
-	config: { circlePoints, circleInitialXAxis, circleInitialYAxis },
-	state: { circleRadius },
+	config: { circlePoints, initialXAxis, initialYAxis },
+	state: { spaceBetweenShapes },
 }) => {
 	let angle = 0;
-	const halfCircleCount = 2;
+	const semiCircleCount = 2;
 
-	const slice = halfCircleCount * Math.PI / circlePoints;
+	const slice = semiCircleCount * Math.PI / circlePoints;
 
 	return range(0, circlePoints).map((circlePoint, index) => {
 		angle += slice;
-		const x = circleInitialXAxis + circleRadius * Math.cos(angle);
-		const y = circleInitialYAxis + circleRadius * Math.sin(angle);
+		const x = initialXAxis * spaceBetweenShapes * Math.cos(angle);
+		const y = initialYAxis * spaceBetweenShapes * Math.sin(angle);
 
 		return { x, y };
 	});

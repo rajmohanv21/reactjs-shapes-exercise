@@ -6,8 +6,9 @@ const refreshIDLength = 4;
 const seed = {
 	count: config.countStart,
 	refreshID: rndString(refreshIDLength),
-	spaceBetweenSquares: config.initialSpace,
-	circleRadius: config.initialRadius,
+	spaceBetweenShapes: config.initialSpace,
+
+	/* circleRadius: config.initialRadius, */
 	selectedShape: config.defaultShape,
 };
 

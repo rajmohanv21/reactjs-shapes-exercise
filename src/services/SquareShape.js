@@ -1,22 +1,22 @@
 import { range } from '@laufire/utils/collection.js';
 
 const getSquareShapePosition = ({
-	state: { spaceBetweenSquares },
+	state: { spaceBetweenShapes },
 	config: { squareSize },
 	data: {	xAxis,	yAxis },
 }) => ({
-	left: `${ (squareSize + spaceBetweenSquares) * xAxis }px`,
-	top: `${ (squareSize + spaceBetweenSquares) * yAxis }px`,
+	left: `${ (squareSize + spaceBetweenShapes) * xAxis }px`,
+	top: `${ (squareSize + spaceBetweenShapes) * yAxis }px`,
 });
 
 const generateSquareShapes = (context) => {
-	const { config: { squareCount, initialAxis }} = context;
+	const { config: { squareCount, initialXAxis, initialYAxis }} = context;
 
-	let xAxis = initialAxis;
-	let yAxis = initialAxis;
+	let xAxis = initialXAxis;
+	let yAxis = initialYAxis;
 
 	const resetAxisValue = () => {
-		xAxis = initialAxis;
+		xAxis = initialXAxis;
 		yAxis++;
 	};
 
