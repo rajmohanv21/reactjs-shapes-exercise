@@ -13,8 +13,8 @@ const ShapeList = ({
 			value={ selectedShape }
 			onChange={ selectShapeHandler }
 		>
-			{shapes.map((shape) =>
-				<option key={ shape } value={ shape }>{shape}</option>)}
+			{shapes.map((shape, index) =>
+				<option key={ index } value={ shape }>{shape}</option>)}
 		</select>
 	</div>;
 

@@ -2,16 +2,17 @@ import React from 'react';
 import Square from './Square';
 import Circle from './Circle';
 
+const shapeComponents = {
+	Square,
+	Circle,
+};
+
 const DisplayShapes = (context) => {
 	const { state: { selectedShape }} = context;
-
-	const shapeComponents = {
-		Square: <Square { ...context }/>,
-		Circle: <Circle { ...context }/>,
-	};
+	const SelectedComponent = shapeComponents[selectedShape];
 
 	return <div className="display-area">
-		{ shapeComponents[selectedShape] }
+		<SelectedComponent { ...context }/>
 	</div>;
 };
 
