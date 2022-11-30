@@ -1,7 +1,3 @@
-const increaseCount = ({ state, data }) => ({
-	count: state.count + data,
-});
-
 const updateSpaceValue = ({ data }) => ({
 	spaceBetweenShapes: data.target.valueAsNumber,
 });
@@ -11,7 +7,6 @@ const selectShapeHandler = ({ data }) => ({
 });
 
 const actions = {
-	increaseCount,
 	selectShapeHandler,
 	updateSpaceValue,
 };
